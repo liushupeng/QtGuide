@@ -1,12 +1,12 @@
-#include <QCoreApplication>
-#include "Tom.h"
 #include "Jerry.h"
+#include "Tom.h"
+#include <QCoreApplication>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QCoreApplication app(argc, argv);
 
-    Tom tom;
+    Tom   tom;
     Jerry jerry;
 
     QObject::connect(&tom, &Tom::miao, &jerry, &Jerry::runAway);
@@ -14,4 +14,3 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
-
