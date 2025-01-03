@@ -1,0 +1,36 @@
+/**
+ * Copyright (c) 2020 ChungZH. ALl Rights Reserved.
+ * Licensed under the MIT license.
+ * See file LICENSE for detail or copy at <https://opensource.org/licenses/MIT>
+ *
+ * This file is a part of Notepanda.
+ *
+ * @file preferenceswindow.h
+ * @brief This file declares the PreferencesWindow class.
+ *        All persistent application settings should be in PreferencesWindow.
+ *
+ */
+#ifndef PREFERENCESWINDOW_H
+#define PREFERENCESWINDOW_H
+
+#include <QObject>
+#include <QPlainTextEdit>
+#include <QWidget>
+
+#include "../core/configmanager.h"
+#include "../core/texteditor.h"
+#include "ui_preferenceswindow.h"
+
+class PreferencesWindow : public QDialog, public Ui::PreferencesWindow
+{
+public:
+    PreferencesWindow(ConfigManager* cfManager, QWidget* parent = nullptr);
+    ~PreferencesWindow();
+    void                   resetAllValues(const bool isFirst);
+    Ui::PreferencesWindow* ui;
+
+private:
+    ConfigManager* configManager;
+};
+
+#endif   // PREFERENCESWINDOW_H
